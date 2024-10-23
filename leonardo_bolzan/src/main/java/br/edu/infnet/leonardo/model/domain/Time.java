@@ -3,15 +3,36 @@ package br.edu.infnet.leonardo.model.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "TTimes")
 public class Time {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
 	private String nome;
 	private String sigla;
 	private String escudo;
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@JoinColumn(name = "idTime")
 	private List<Jogador> jogadores;
 	
+	public Time() { }
+	
 	public Time(String nome, String sigla) {
-		this.nome = nome;
-		this.sigla = sigla;
+		this.setNome(nome);
+		this.setSigla(sigla);
 		this.jogadores = new ArrayList<Jogador>();
 	}
 	
@@ -20,6 +41,14 @@ public class Time {
     	return String.format("Time: %s - Quantidade de jogadores: %d", this.nome, this.jogadores.size());
     }
 	
+    public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+    
 	public String getNome() {
 		return nome;
 	}
@@ -50,5 +79,9 @@ public class Time {
 	
 	public void setJogadores(List<Jogador> jogadores) {
 		this.jogadores = jogadores;
+	}
+	
+	public void addJogador(Jogador jogador) {
+		this.jogadores.add(jogador);
 	}
 }

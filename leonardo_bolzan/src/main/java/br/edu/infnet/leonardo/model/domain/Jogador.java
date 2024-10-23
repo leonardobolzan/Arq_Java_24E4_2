@@ -1,14 +1,26 @@
 package br.edu.infnet.leonardo.model.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "TJogadores")
 public class Jogador extends Pessoa {
 	private int numero;
 	private String posicao;
 	private Boolean titular;
 
-	public Jogador(int numero, String posicao) {
-		this.numero = numero;
-		this.posicao = posicao;
-		this.titular = true;
+	@ManyToOne
+	@JoinColumn(name = "idTime")
+	private Time time;
+	
+	public Jogador(String nome, int numero, String posicao) {
+		this.setNome(nome);
+		this.setNumero(numero);
+		this.setPosicao(posicao);
+		this.setTitular(true);
 	}
 	
     @Override

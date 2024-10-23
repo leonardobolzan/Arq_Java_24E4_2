@@ -1,13 +1,18 @@
 package br.edu.infnet.leonardo.model.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "TNarradores")
 public class Narrador extends Pessoa {
     private String especialidade;
     private boolean disponivel;
    
     public Narrador(String nome, String especialidade) {
-        this.setNome(nome);
-    	this.especialidade = especialidade;
-        this.disponivel = true;
+    	this.setNome(nome);
+    	this.setEspecialidade(especialidade);
+        this.setDisponivel(true);
     }
 
     @Override

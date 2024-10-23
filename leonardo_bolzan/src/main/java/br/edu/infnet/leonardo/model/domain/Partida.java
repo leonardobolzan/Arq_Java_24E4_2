@@ -5,10 +5,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -18,14 +22,15 @@ public class Partida {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
-	private String identificador;
 	
-	@Transient
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "idTimeCasa")
 	private Time timeCasa;
     
-	@Transient
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "idTimeVisitante")
 	private Time timeVisitante;
+	
     private LocalDateTime dataHoraInicio;
     private String local;
     private int placarCasa;
@@ -40,8 +45,9 @@ public class Partida {
     @Transient
     private List<Canal> canais;
     
-    public Partida(String identificador, Time timeCasa, Time timeVisitante, LocalDateTime dataHoraInicio, String local) {
-        this.identificador = identificador;
+    public Partida() { }
+    
+    public Partida(Time timeCasa, Time timeVisitante, LocalDateTime dataHoraInicio, String local) {
     	this.timeCasa = timeCasa;
         this.timeVisitante = timeVisitante;
         this.dataHoraInicio = dataHoraInicio;
@@ -67,14 +73,6 @@ public class Partida {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	
-    public String getIdentificador() {
-		return identificador;
-	}
-
-	public void setIdentificador(String identificador) {
-		this.identificador = identificador;
 	}
 	
 	public Time getTimeCasa() {

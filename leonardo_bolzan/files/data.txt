@@ -1,5 +1,0 @@
-PT|c5fc3a53-45ce-4add-b4f4-94835fabf55d|Estádio Beira Rio
-TC|Internacional|INT
-TV|Grêmio|GRE
-CN|SporTV|38|Milton Leite
-CN|Globo RS|8|Paulo Brito
