@@ -1,14 +1,23 @@
 package br.edu.infnet.leonardo.model.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "TNarradores")
 public class Narrador extends Pessoa {
-    private String especialidade;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	private String especialidade;
     private boolean disponivel;
-   
+
+    public Narrador() { }
+    
     public Narrador(String nome, String especialidade) {
     	this.setNome(nome);
     	this.setEspecialidade(especialidade);
@@ -19,6 +28,14 @@ public class Narrador extends Pessoa {
     public String toString() {
     	return String.format("Narrador: %s.", this.getNome());
     }
+    
+    public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
     
 	public String getEspecialidade() {
 		return especialidade;

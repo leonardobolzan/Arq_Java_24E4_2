@@ -24,7 +24,7 @@ public class Time {
 	private String sigla;
 	private String escudo;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "idTime")
 	private List<Jogador> jogadores;
 	

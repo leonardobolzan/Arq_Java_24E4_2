@@ -1,20 +1,23 @@
 package br.edu.infnet.leonardo.model.domain;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "TJogadores")
 public class Jogador extends Pessoa {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
 	private int numero;
 	private String posicao;
 	private Boolean titular;
-
-	@ManyToOne
-	@JoinColumn(name = "idTime")
-	private Time time;
+	
+	public Jogador() { }
 	
 	public Jogador(String nome, int numero, String posicao) {
 		this.setNome(nome);
@@ -28,6 +31,14 @@ public class Jogador extends Pessoa {
     	return String.format("Jogador: %s - Número: %d.", this.getNome(), this.numero);
     }
 	
+    public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+    
 	public int getNumero() {
 		return numero;
 	}

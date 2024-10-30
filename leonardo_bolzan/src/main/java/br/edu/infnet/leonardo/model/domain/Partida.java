@@ -12,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -36,13 +37,16 @@ public class Partida {
     private int placarCasa;
     private int placarVisitante;
     
-    @Transient
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "idEstatisticasCasa")
     private Estatisticas estatisticasTimeCasa;
     
-    @Transient
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "idEstatisticasVisitante")
     private Estatisticas estatisticasTimeVisitante;
     
-    @Transient
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "idPartida")
     private List<Canal> canais;
     
     public Partida() { }
