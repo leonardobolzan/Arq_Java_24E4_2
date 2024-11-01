@@ -60,7 +60,7 @@ public class Loader implements ApplicationRunner {
 		Canal canal = new Canal("Globo RS", 8, narrador);
 		partida.addCanal(canal);
 
-		/// Associa um canal à partida
+		/// Associa outro canal à partida
 		narrador = new Narrador("Milton Leite", "Futebol nacional");
 		canal = new Canal("SporTV", 38, narrador);
 		partida.addCanal(canal);
@@ -73,6 +73,6 @@ public class Loader implements ApplicationRunner {
 		var estatisticasTimeVisitante = new Estatisticas();
 		partida.setEstatisticasTimeVisitante(estatisticasTimeVisitante);
 		
-		partidaService.AddPartida(partida);
+		partidaService.Add(partida);
 	}
 }
