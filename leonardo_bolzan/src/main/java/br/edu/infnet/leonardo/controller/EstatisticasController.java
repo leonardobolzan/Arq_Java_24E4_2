@@ -19,28 +19,28 @@ public class EstatisticasController {
 
 	@Autowired
 	private EstatisticasService estatisticasService;
-	
+
 	@GetMapping(value = "/estatisticas")
-	public Collection<Estatisticas> GetAll(){
+	public Collection<Estatisticas> GetAll() {
 		return estatisticasService.GetAll();
 	}
-	
+
 	@GetMapping(value = "/estatisticas/{id}")
-	public Optional<Estatisticas> GetById(@PathVariable Integer id){
+	public Optional<Estatisticas> GetById(@PathVariable Integer id) {
 		return estatisticasService.GetById(id);
 	}
-	
+
 	@GetMapping(value = "/estatisticas/count")
-	public Long CountAll(){
+	public Long CountAll() {
 		return estatisticasService.CountAll();
 	}
-	
+
 	@PostMapping(value = "/estatisticas/new")
 	public String Add(@RequestBody Estatisticas estatisticas) {
 		estatisticasService.Add(estatisticas);
 		return "Estatísticas cadastradas com sucesso.";
 	}
-	
+
 	@DeleteMapping(value = "/estatisticas/{id}")
 	public String Remove(@PathVariable Integer id) {
 		estatisticasService.Delete(id);

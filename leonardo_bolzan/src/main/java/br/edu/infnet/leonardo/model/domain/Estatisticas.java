@@ -12,34 +12,34 @@ public class Estatisticas {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	private float percentualPosseBola;
-    private int chutesAGol;
-    private int faltasCometidas;
-    private int cartoesAmarelos;
-    private int cartoesVermelhos;
-    
-    public Estatisticas() {
-        this.percentualPosseBola = 0;
-        this.chutesAGol = 0;
-        this.faltasCometidas = 0;
-        this.cartoesAmarelos = 0;
-        this.cartoesVermelhos = 0;
-    }
 
-    @Override
-    public String toString() {
-    	return "Estatísticas da partida.";
-    }
-    
-    public Integer getId() {
+	private float percentualPosseBola;
+	private int chutesAGol;
+	private int faltasCometidas;
+	private int cartoesAmarelos;
+	private int cartoesVermelhos;
+
+	public Estatisticas() {
+		this.percentualPosseBola = 0;
+		this.chutesAGol = 0;
+		this.faltasCometidas = 0;
+		this.cartoesAmarelos = 0;
+		this.cartoesVermelhos = 0;
+	}
+
+	@Override
+	public String toString() {
+		return "Estatísticas da partida.";
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
-    
+
 	public float getPercentualPosseBola() {
 		return percentualPosseBola;
 	}

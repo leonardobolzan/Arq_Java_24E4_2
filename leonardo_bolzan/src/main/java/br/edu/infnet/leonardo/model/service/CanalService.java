@@ -14,22 +14,22 @@ public class CanalService {
 	@Autowired
 	private CanalRepository canalRepository;
 
-	public Collection<Canal> GetAll(){
-		return (Collection<Canal>)canalRepository.findAll();
+	public Collection<Canal> GetAll() {
+		return (Collection<Canal>) canalRepository.findAll();
 	}
-	
-	public Optional<Canal> GetById(Integer id){
+
+	public Optional<Canal> GetById(Integer id) {
 		return canalRepository.findById(id);
 	}
-	
+
 	public void Add(Canal canal) {
 		canalRepository.save(canal);
 	}
-	
+
 	public void Delete(Integer id) {
 		canalRepository.deleteById(id);
 	}
-	
+
 	public Long CountAll() {
 		return canalRepository.count();
 	}

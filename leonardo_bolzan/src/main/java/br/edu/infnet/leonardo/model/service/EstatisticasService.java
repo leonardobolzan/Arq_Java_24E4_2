@@ -14,22 +14,22 @@ public class EstatisticasService {
 	@Autowired
 	private EstatisticasRepository estatisticasRepository;
 
-	public Collection<Estatisticas> GetAll(){
-		return (Collection<Estatisticas>)estatisticasRepository.findAll();
+	public Collection<Estatisticas> GetAll() {
+		return (Collection<Estatisticas>) estatisticasRepository.findAll();
 	}
-	
-	public Optional<Estatisticas> GetById(Integer id){
+
+	public Optional<Estatisticas> GetById(Integer id) {
 		return estatisticasRepository.findById(id);
 	}
-	
+
 	public void Add(Estatisticas estatisticas) {
 		estatisticasRepository.save(estatisticas);
 	}
-	
+
 	public void Delete(Integer id) {
 		estatisticasRepository.deleteById(id);
 	}
-	
+
 	public Long CountAll() {
 		return estatisticasRepository.count();
 	}

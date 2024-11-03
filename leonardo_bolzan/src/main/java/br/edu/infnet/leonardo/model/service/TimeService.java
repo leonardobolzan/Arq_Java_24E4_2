@@ -13,23 +13,23 @@ import br.edu.infnet.leonardo.model.repository.TimeRepository;
 public class TimeService {
 	@Autowired
 	private TimeRepository timeRepository;
-	
-	public Collection<Time> GetAll(){
-		return (Collection<Time>)timeRepository.findAll();
+
+	public Collection<Time> GetAll() {
+		return (Collection<Time>) timeRepository.findAll();
 	}
-	
-	public Optional<Time> GetById(Integer id){
+
+	public Optional<Time> GetById(Integer id) {
 		return timeRepository.findById(id);
 	}
-	
+
 	public void Add(Time time) {
 		timeRepository.save(time);
 	}
-	
+
 	public void Delete(Integer id) {
 		timeRepository.deleteById(id);
 	}
-	
+
 	public Long CountAll() {
 		return timeRepository.count();
 	}

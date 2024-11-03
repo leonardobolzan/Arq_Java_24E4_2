@@ -14,22 +14,22 @@ public class PessoaService {
 	@Autowired
 	private PessoaRepository pessoaRepository;
 
-	public Collection<Pessoa> GetAll(){
-		return (Collection<Pessoa>)pessoaRepository.findAll();
+	public Collection<Pessoa> GetAll() {
+		return (Collection<Pessoa>) pessoaRepository.findAll();
 	}
-	
-	public Optional<Pessoa> GetById(Integer id){
+
+	public Optional<Pessoa> GetById(Integer id) {
 		return pessoaRepository.findById(id);
 	}
-	
+
 	public void Add(Pessoa pessoa) {
 		pessoaRepository.save(pessoa);
 	}
-	
+
 	public void Delete(Integer id) {
 		pessoaRepository.deleteById(id);
 	}
-	
+
 	public Long CountAll() {
 		return pessoaRepository.count();
 	}

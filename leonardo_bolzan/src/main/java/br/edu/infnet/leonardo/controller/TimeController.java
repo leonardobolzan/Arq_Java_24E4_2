@@ -19,28 +19,28 @@ public class TimeController {
 
 	@Autowired
 	private TimeService timeService;
-	
+
 	@GetMapping(value = "/times")
-	public Collection<Time> GetAll(){
+	public Collection<Time> GetAll() {
 		return timeService.GetAll();
 	}
-	
+
 	@GetMapping(value = "/times/{id}")
-	public Optional<Time> GetById(@PathVariable Integer id){
+	public Optional<Time> GetById(@PathVariable Integer id) {
 		return timeService.GetById(id);
 	}
-	
+
 	@GetMapping(value = "/times/count")
-	public Long CountAll(){
+	public Long CountAll() {
 		return timeService.CountAll();
 	}
-	
+
 	@PostMapping(value = "/times/new")
 	public String Add(@RequestBody Time time) {
 		timeService.Add(time);
 		return "Time cadastrado com sucesso.";
 	}
-	
+
 	@DeleteMapping(value = "/times/{id}")
 	public String Remove(@PathVariable Integer id) {
 		timeService.Delete(id);

@@ -14,22 +14,22 @@ public class JogadorService {
 	@Autowired
 	private JogadorRepository jogadorRepository;
 
-	public Collection<Jogador> GetAll(){
-		return (Collection<Jogador>)jogadorRepository.findAll();
+	public Collection<Jogador> GetAll() {
+		return (Collection<Jogador>) jogadorRepository.findAll();
 	}
-	
-	public Optional<Jogador> GetById(Integer id){
+
+	public Optional<Jogador> GetById(Integer id) {
 		return jogadorRepository.findById(id);
 	}
 
 	public void Add(Jogador jogador) {
 		jogadorRepository.save(jogador);
 	}
-	
+
 	public void Delete(Integer id) {
 		jogadorRepository.deleteById(id);
 	}
-	
+
 	public Long CountAll() {
 		return jogadorRepository.count();
 	}

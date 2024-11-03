@@ -19,7 +19,7 @@ public class Time {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String nome;
 	private String sigla;
 	private String escudo;
@@ -27,60 +27,61 @@ public class Time {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "idTime")
 	private List<Jogador> jogadores;
-	
-	public Time() { }
-	
+
+	public Time() {
+	}
+
 	public Time(String nome, String sigla) {
 		this.setNome(nome);
 		this.setSigla(sigla);
 		this.jogadores = new ArrayList<Jogador>();
 	}
-	
-    @Override
-    public String toString() {
-    	return String.format("Time: %s - Quantidade de jogadores: %d", this.nome, this.jogadores.size());
-    }
-	
-    public Integer getId() {
+
+	@Override
+	public String toString() {
+		return String.format("Time: %s - Quantidade de jogadores: %d", this.nome, this.jogadores.size());
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
-    
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public String getSigla() {
 		return sigla;
 	}
-	
+
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
 	}
-	
+
 	public String getEscudo() {
 		return escudo;
 	}
-	
+
 	public void setEscudo(String escudo) {
 		this.escudo = escudo;
 	}
-	
+
 	public List<Jogador> getJogadores() {
 		return jogadores;
 	}
-	
+
 	public void setJogadores(List<Jogador> jogadores) {
 		this.jogadores = jogadores;
 	}
-	
+
 	public void addJogador(Jogador jogador) {
 		this.jogadores.add(jogador);
 	}

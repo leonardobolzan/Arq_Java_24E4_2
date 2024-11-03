@@ -22,62 +22,61 @@ public class Partida {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "idTimeCasa")
 	private Time timeCasa;
-    
+
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "idTimeVisitante")
 	private Time timeVisitante;
-	
-    private LocalDateTime dataHoraInicio;
-    private String local;
-    private int placarCasa;
-    private int placarVisitante;
-    
+
+	private LocalDateTime dataHoraInicio;
+	private String local;
+	private int placarCasa;
+	private int placarVisitante;
+
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "idEstatisticasCasa")
-    private Estatisticas estatisticasTimeCasa;
-    
+	private Estatisticas estatisticasTimeCasa;
+
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "idEstatisticasVisitante")
-    private Estatisticas estatisticasTimeVisitante;
-    
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "idPartida")
-    private List<Canal> canais;
-    
-    public Partida() { }
-    
-    public Partida(Time timeCasa, Time timeVisitante, LocalDateTime dataHoraInicio, String local) {
-    	this.timeCasa = timeCasa;
-        this.timeVisitante = timeVisitante;
-        this.dataHoraInicio = dataHoraInicio;
-        this.local = local;
-        this.placarCasa = 0;
-        this.placarVisitante = 0;
-        this.estatisticasTimeCasa = new Estatisticas();
-        this.estatisticasTimeVisitante = new Estatisticas();
-        this.canais = new ArrayList<Canal>();
-    }
+	private Estatisticas estatisticasTimeVisitante;
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "idPartida")
+	private List<Canal> canais;
+
+	public Partida() {
+	}
+
+	public Partida(Time timeCasa, Time timeVisitante, LocalDateTime dataHoraInicio, String local) {
+		this.timeCasa = timeCasa;
+		this.timeVisitante = timeVisitante;
+		this.dataHoraInicio = dataHoraInicio;
+		this.local = local;
+		this.placarCasa = 0;
+		this.placarVisitante = 0;
+		this.estatisticasTimeCasa = new Estatisticas();
+		this.estatisticasTimeVisitante = new Estatisticas();
+		this.canais = new ArrayList<Canal>();
+	}
 
 	@Override
-    public String toString() {
-    	return String.format("Partida iniciada em %s - %s vs %s.",
-    			this.dataHoraInicio,
-    			this.timeCasa.getNome(),
-    			this.timeVisitante.getNome());
-    }
-    
-    public Integer getId() {
+	public String toString() {
+		return String.format("Partida iniciada em %s - %s vs %s.", this.dataHoraInicio, this.timeCasa.getNome(),
+				this.timeVisitante.getNome());
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public Time getTimeCasa() {
 		return timeCasa;
 	}
@@ -149,7 +148,7 @@ public class Partida {
 	public void setCanais(List<Canal> canais) {
 		this.canais = canais;
 	}
-	
+
 	public void addCanal(Canal canal) {
 		this.canais.add(canal);
 	}

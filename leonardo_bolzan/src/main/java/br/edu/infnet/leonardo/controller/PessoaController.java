@@ -19,28 +19,28 @@ public class PessoaController {
 
 	@Autowired
 	private PessoaService pessoaService;
-	
+
 	@GetMapping(value = "/pessoas")
-	public Collection<Pessoa> GetAll(){
+	public Collection<Pessoa> GetAll() {
 		return pessoaService.GetAll();
 	}
-	
+
 	@GetMapping(value = "/pessoas/{id}")
-	public Optional<Pessoa> GetById(@PathVariable Integer id){
+	public Optional<Pessoa> GetById(@PathVariable Integer id) {
 		return pessoaService.GetById(id);
 	}
-	
+
 	@GetMapping(value = "/pessoas/count")
-	public Long CountAll(){
+	public Long CountAll() {
 		return pessoaService.CountAll();
 	}
-	
+
 	@PostMapping(value = "/pessoas/new")
 	public String Add(@RequestBody Pessoa pessoa) {
 		pessoaService.Add(pessoa);
 		return "Pessoa cadastrada com sucesso.";
 	}
-	
+
 	@DeleteMapping(value = "/pessoas/{id}")
 	public String Remove(@PathVariable Integer id) {
 		pessoaService.Delete(id);

@@ -19,28 +19,28 @@ public class NarradorController {
 
 	@Autowired
 	private NarradorService narradorService;
-	
+
 	@GetMapping(value = "/narradores")
-	public Collection<Narrador> GetAll(){
+	public Collection<Narrador> GetAll() {
 		return narradorService.GetAll();
 	}
-	
+
 	@GetMapping(value = "/narradores/{id}")
-	public Optional<Narrador> GetById(@PathVariable Integer id){
+	public Optional<Narrador> GetById(@PathVariable Integer id) {
 		return narradorService.GetById(id);
 	}
-	
+
 	@GetMapping(value = "/narradores/count")
-	public Long CountAll(){
+	public Long CountAll() {
 		return narradorService.CountAll();
 	}
-	
+
 	@PostMapping(value = "/narradores/new")
 	public String Add(@RequestBody Narrador narrador) {
 		narradorService.Add(narrador);
 		return "Narrador cadastrado com sucesso.";
 	}
-	
+
 	@DeleteMapping(value = "/narradores/{id}")
 	public String Remove(@PathVariable Integer id) {
 		narradorService.Delete(id);

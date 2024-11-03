@@ -19,28 +19,28 @@ public class JogadorController {
 
 	@Autowired
 	private JogadorService jogadorService;
-	
+
 	@GetMapping(value = "/jogadores")
-	public Collection<Jogador> GetAll(){
+	public Collection<Jogador> GetAll() {
 		return jogadorService.GetAll();
 	}
-	
+
 	@GetMapping(value = "/jogadores/{id}")
-	public Optional<Jogador> GetById(@PathVariable Integer id){
+	public Optional<Jogador> GetById(@PathVariable Integer id) {
 		return jogadorService.GetById(id);
 	}
-	
+
 	@GetMapping(value = "/jogadores/count")
-	public Long CountAll(){
+	public Long CountAll() {
 		return jogadorService.CountAll();
 	}
-	
+
 	@PostMapping(value = "/jogadores/new")
 	public String Add(@RequestBody Jogador jogador) {
 		jogadorService.Add(jogador);
 		return "Jogador cadastrado com sucesso.";
 	}
-	
+
 	@DeleteMapping(value = "/jogadores/{id}")
 	public String Remove(@PathVariable Integer id) {
 		jogadorService.Delete(id);

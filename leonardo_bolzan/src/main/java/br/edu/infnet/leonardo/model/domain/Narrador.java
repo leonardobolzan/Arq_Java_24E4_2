@@ -12,31 +12,32 @@ public class Narrador extends Pessoa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String especialidade;
-    private boolean disponivel;
+	private boolean disponivel;
 
-    public Narrador() { }
-    
-    public Narrador(String nome, String especialidade) {
-    	this.setNome(nome);
-    	this.setEspecialidade(especialidade);
-        this.setDisponivel(true);
-    }
+	public Narrador() {
+	}
 
-    @Override
-    public String toString() {
-    	return String.format("Narrador: %s.", this.getNome());
-    }
-    
-    public Integer getId() {
+	public Narrador(String nome, String especialidade) {
+		this.setNome(nome);
+		this.setEspecialidade(especialidade);
+		this.setDisponivel(true);
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Narrador: %s.", this.getNome());
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
-    
+
 	public String getEspecialidade() {
 		return especialidade;
 	}

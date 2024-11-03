@@ -14,22 +14,22 @@ public class NarradorService {
 	@Autowired
 	private NarradorRepository narradorRepository;
 
-	public Collection<Narrador> GetAll(){
-		return (Collection<Narrador>)narradorRepository.findAll();
+	public Collection<Narrador> GetAll() {
+		return (Collection<Narrador>) narradorRepository.findAll();
 	}
-	
-	public Optional<Narrador> GetById(Integer id){
+
+	public Optional<Narrador> GetById(Integer id) {
 		return narradorRepository.findById(id);
 	}
-	
+
 	public void Add(Narrador narrador) {
 		narradorRepository.save(narrador);
 	}
-	
+
 	public void Delete(Integer id) {
 		narradorRepository.deleteById(id);
 	}
-	
+
 	public Long CountAll() {
 		return narradorRepository.count();
 	}

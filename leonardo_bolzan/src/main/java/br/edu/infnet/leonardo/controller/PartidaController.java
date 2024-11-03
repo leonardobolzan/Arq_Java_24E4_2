@@ -19,28 +19,28 @@ public class PartidaController {
 
 	@Autowired
 	private PartidaService partidaService;
-	
+
 	@GetMapping(value = "/partidas")
-	public Collection<Partida> GetAll(){
+	public Collection<Partida> GetAll() {
 		return partidaService.GetAll();
 	}
-	
+
 	@GetMapping(value = "/partidas/{id}")
-	public Optional<Partida> GetById(@PathVariable Integer id){
+	public Optional<Partida> GetById(@PathVariable Integer id) {
 		return partidaService.GetById(id);
 	}
-	
+
 	@GetMapping(value = "/partidas/count")
-	public Long CountAll(){
+	public Long CountAll() {
 		return partidaService.CountAll();
 	}
-	
+
 	@PostMapping(value = "/partidas/new")
 	public String Add(@RequestBody Partida partida) {
 		partidaService.Add(partida);
 		return "Partida cadastrada com sucesso.";
 	}
-	
+
 	@DeleteMapping(value = "/partidas/{id}")
 	public String Remove(@PathVariable Integer id) {
 		partidaService.Delete(id);

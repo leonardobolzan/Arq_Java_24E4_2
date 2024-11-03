@@ -15,22 +15,22 @@ public class PartidaService {
 	@Autowired
 	private PartidaRepository partidaRepository;
 
-	public Collection<Partida> GetAll(){
-		return (Collection<Partida>)partidaRepository.findAll();
+	public Collection<Partida> GetAll() {
+		return (Collection<Partida>) partidaRepository.findAll();
 	}
-	
-	public Optional<Partida> GetById(Integer id){
+
+	public Optional<Partida> GetById(Integer id) {
 		return partidaRepository.findById(id);
 	}
-	
+
 	public void Add(Partida partida) {
 		partidaRepository.save(partida);
 	}
-	
+
 	public void Delete(Integer id) {
 		partidaRepository.deleteById(id);
 	}
-	
+
 	public Long CountAll() {
 		return partidaRepository.count();
 	}

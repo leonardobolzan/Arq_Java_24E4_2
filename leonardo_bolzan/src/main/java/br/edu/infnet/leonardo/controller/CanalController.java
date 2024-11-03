@@ -19,28 +19,28 @@ public class CanalController {
 
 	@Autowired
 	private CanalService canalService;
-	
+
 	@GetMapping(value = "/canais")
-	public Collection<Canal> GetAll(){
+	public Collection<Canal> GetAll() {
 		return canalService.GetAll();
 	}
-	
+
 	@GetMapping(value = "/canais/{id}")
-	public Optional<Canal> GetById(@PathVariable Integer id){
+	public Optional<Canal> GetById(@PathVariable Integer id) {
 		return canalService.GetById(id);
 	}
-	
+
 	@GetMapping(value = "/canais/count")
-	public Long CountAll(){
+	public Long CountAll() {
 		return canalService.CountAll();
 	}
-	
+
 	@PostMapping(value = "/canais/new")
 	public String Add(@RequestBody Canal canal) {
 		canalService.Add(canal);
 		return "Canal cadastrado com sucesso.";
 	}
-	
+
 	@DeleteMapping(value = "/canais/{id}")
 	public String Remove(@PathVariable Integer id) {
 		canalService.Delete(id);

@@ -20,10 +20,10 @@ public class Loader implements ApplicationRunner {
 
 	@Autowired
 	private PartidaService partidaService;
-	
+
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
+
 		/// INT x GRE
 		Partida partida = GetPartida1();
 		partidaService.Add(partida);
@@ -31,9 +31,9 @@ public class Loader implements ApplicationRunner {
 		/// INT x FLA
 		partida = GetPartida2();
 		partidaService.Add(partida);
-		
+
 	}
-	
+
 	private Partida GetPartida1() {
 
 		Time timeCasa = new Time("Internacional", "INT");
@@ -61,11 +61,9 @@ public class Loader implements ApplicationRunner {
 		timeVisitante.addJogador(new Jogador("Cristaldo", 10, "MEC"));
 		timeVisitante.addJogador(new Jogador("Aravena", 16, "MEC"));
 		timeVisitante.addJogador(new Jogador("Braithwaite", 22, "ATA"));
-		
+
 		/// Cria a partida
-		Partida partida = new Partida(timeCasa,
-				timeVisitante,
-				GetLocalDateTime("2024-10-19 16:00"),
+		Partida partida = new Partida(timeCasa, timeVisitante, GetLocalDateTime("2024-10-19 16:00"),
 				"Estádio Beira-Rio");
 
 		/// Associa um canal à partida
@@ -80,7 +78,7 @@ public class Loader implements ApplicationRunner {
 
 		return partida;
 	}
-	
+
 	private Partida GetPartida2() {
 
 		Time timeCasa = new Time("Internacional", "INT");
@@ -95,7 +93,7 @@ public class Loader implements ApplicationRunner {
 		timeCasa.addJogador(new Jogador("Bruno Tabata", 27, "MEC"));
 		timeCasa.addJogador(new Jogador("Wesley", 21, "MEC"));
 		timeCasa.addJogador(new Jogador("Borré", 19, "ATA"));
-		
+
 		Time timeVisitante = new Time("Flamengo", "FLA");
 		timeVisitante.addJogador(new Jogador("Rossi", 1, "GOL"));
 		timeVisitante.addJogador(new Jogador("Varela", 2, "LAD"));
@@ -108,21 +106,19 @@ public class Loader implements ApplicationRunner {
 		timeVisitante.addJogador(new Jogador("Gerson", 8, "ATA"));
 		timeVisitante.addJogador(new Jogador("Plata", 45, "ATA"));
 		timeVisitante.addJogador(new Jogador("Bruno Henrique", 27, "ATA"));
-		
+
 		/// Cria a partida
-		Partida partida = new Partida(timeCasa,
-				timeVisitante,
-				GetLocalDateTime("2024-10-30 19:00"),
+		Partida partida = new Partida(timeCasa, timeVisitante, GetLocalDateTime("2024-10-30 19:00"),
 				"Estádio Beira-Rio");
 
 		/// Associa um canal à partida
 		Narrador narrador = new Narrador("Paulo Brito", "Futebol do RS");
 		Canal canal = new Canal("Canal do Baldasso", 8, narrador);
 		partida.addCanal(canal);
-		
+
 		return partida;
 	}
-	
+
 	private static LocalDateTime GetLocalDateTime(String data) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		return LocalDateTime.parse(data, formatter);
