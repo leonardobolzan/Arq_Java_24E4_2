@@ -29,4 +29,8 @@ public class JogadorService {
 	public void Delete(Integer id) {
 		jogadorRepository.deleteById(id);
 	}
+	
+	public Long CountAll() {
+		return jogadorRepository.count();
+	}
 }

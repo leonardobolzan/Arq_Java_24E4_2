@@ -30,4 +30,8 @@ public class PartidaService {
 	public void Delete(Integer id) {
 		partidaRepository.deleteById(id);
 	}
+	
+	public Long CountAll() {
+		return partidaRepository.count();
+	}
 }

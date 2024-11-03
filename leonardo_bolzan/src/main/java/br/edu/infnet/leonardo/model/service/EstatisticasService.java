@@ -29,4 +29,8 @@ public class EstatisticasService {
 	public void Delete(Integer id) {
 		estatisticasRepository.deleteById(id);
 	}
+	
+	public Long CountAll() {
+		return estatisticasRepository.count();
+	}
 }

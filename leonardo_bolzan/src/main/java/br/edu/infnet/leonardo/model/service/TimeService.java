@@ -29,4 +29,8 @@ public class TimeService {
 	public void Delete(Integer id) {
 		timeRepository.deleteById(id);
 	}
+	
+	public Long CountAll() {
+		return timeRepository.count();
+	}
 }

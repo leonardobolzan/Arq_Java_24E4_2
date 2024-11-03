@@ -30,6 +30,11 @@ public class CanalController {
 		return canalService.GetById(id);
 	}
 	
+	@GetMapping(value = "/canais/count")
+	public Long CountAll(){
+		return canalService.CountAll();
+	}
+	
 	@PostMapping(value = "/canais/new")
 	public String Add(@RequestBody Canal canal) {
 		canalService.Add(canal);

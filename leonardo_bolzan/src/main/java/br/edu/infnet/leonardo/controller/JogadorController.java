@@ -30,6 +30,11 @@ public class JogadorController {
 		return jogadorService.GetById(id);
 	}
 	
+	@GetMapping(value = "/jogadores/count")
+	public Long CountAll(){
+		return jogadorService.CountAll();
+	}
+	
 	@PostMapping(value = "/jogadores/new")
 	public String Add(@RequestBody Jogador jogador) {
 		jogadorService.Add(jogador);

@@ -29,4 +29,8 @@ public class CanalService {
 	public void Delete(Integer id) {
 		canalRepository.deleteById(id);
 	}
+	
+	public Long CountAll() {
+		return canalRepository.count();
+	}
 }

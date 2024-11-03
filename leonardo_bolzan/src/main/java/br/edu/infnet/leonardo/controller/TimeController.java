@@ -30,6 +30,11 @@ public class TimeController {
 		return timeService.GetById(id);
 	}
 	
+	@GetMapping(value = "/times/count")
+	public Long CountAll(){
+		return timeService.CountAll();
+	}
+	
 	@PostMapping(value = "/times/new")
 	public String Add(@RequestBody Time time) {
 		timeService.Add(time);

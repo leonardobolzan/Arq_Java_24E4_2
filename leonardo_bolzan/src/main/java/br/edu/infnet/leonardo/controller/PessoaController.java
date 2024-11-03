@@ -30,6 +30,11 @@ public class PessoaController {
 		return pessoaService.GetById(id);
 	}
 	
+	@GetMapping(value = "/pessoas/count")
+	public Long CountAll(){
+		return pessoaService.CountAll();
+	}
+	
 	@PostMapping(value = "/pessoas/new")
 	public String Add(@RequestBody Pessoa pessoa) {
 		pessoaService.Add(pessoa);

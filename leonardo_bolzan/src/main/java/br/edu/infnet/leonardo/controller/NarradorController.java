@@ -30,6 +30,11 @@ public class NarradorController {
 		return narradorService.GetById(id);
 	}
 	
+	@GetMapping(value = "/narradores/count")
+	public Long CountAll(){
+		return narradorService.CountAll();
+	}
+	
 	@PostMapping(value = "/narradores/new")
 	public String Add(@RequestBody Narrador narrador) {
 		narradorService.Add(narrador);

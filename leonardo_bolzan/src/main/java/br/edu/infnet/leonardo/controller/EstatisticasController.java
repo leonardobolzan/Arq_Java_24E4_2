@@ -30,6 +30,11 @@ public class EstatisticasController {
 		return estatisticasService.GetById(id);
 	}
 	
+	@GetMapping(value = "/estatisticas/count")
+	public Long CountAll(){
+		return estatisticasService.CountAll();
+	}
+	
 	@PostMapping(value = "/estatisticas/new")
 	public String Add(@RequestBody Estatisticas estatisticas) {
 		estatisticasService.Add(estatisticas);

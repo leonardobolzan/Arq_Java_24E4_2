@@ -29,4 +29,8 @@ public class PessoaService {
 	public void Delete(Integer id) {
 		pessoaRepository.deleteById(id);
 	}
+	
+	public Long CountAll() {
+		return pessoaRepository.count();
+	}
 }

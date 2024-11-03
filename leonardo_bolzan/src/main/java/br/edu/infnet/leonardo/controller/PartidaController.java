@@ -30,6 +30,11 @@ public class PartidaController {
 		return partidaService.GetById(id);
 	}
 	
+	@GetMapping(value = "/partidas/count")
+	public Long CountAll(){
+		return partidaService.CountAll();
+	}
+	
 	@PostMapping(value = "/partidas/new")
 	public String Add(@RequestBody Partida partida) {
 		partidaService.Add(partida);

@@ -29,4 +29,8 @@ public class NarradorService {
 	public void Delete(Integer id) {
 		narradorRepository.deleteById(id);
 	}
+	
+	public Long CountAll() {
+		return narradorRepository.count();
+	}
 }
