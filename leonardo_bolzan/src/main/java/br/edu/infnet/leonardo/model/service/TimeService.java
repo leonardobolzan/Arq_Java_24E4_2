@@ -1,7 +1,6 @@
 package br.edu.infnet.leonardo.model.service;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +17,8 @@ public class TimeService {
 		return (Collection<Time>) timeRepository.findAll();
 	}
 
-	public Optional<Time> GetById(Integer id) {
-		return timeRepository.findById(id);
+	public Time GetById(Integer id) {
+		return timeRepository.findById(id).orElse(null);
 	}
 
 	public void Add(Time time) {

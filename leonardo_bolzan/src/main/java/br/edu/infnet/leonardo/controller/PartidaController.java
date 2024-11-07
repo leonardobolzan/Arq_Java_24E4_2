@@ -1,9 +1,10 @@
 package br.edu.infnet.leonardo.controller;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,14 +28,15 @@ public class PartidaController {
 
 	@Operation(summary = "Retorna todas as partidas cadastradas.")
 	@GetMapping
-	public Collection<Partida> GetAll() {
-		return partidaService.GetAll();
+	public ResponseEntity<Collection<Partida>> GetAll() {
+		return ResponseEntity.ok(partidaService.GetAll());
 	}
 
 	@Operation(summary = "Retorna uma partida através do identificador único.")
 	@GetMapping(value = "/{id}")
-	public Optional<Partida> GetById(@PathVariable Integer id) {
-		return partidaService.GetById(id);
+	public ResponseEntity<Partida> GetById(@PathVariable Integer id) {
+		Partida partida = partidaService.GetById(id);
+		return partida != null ? ResponseEntity.ok(partida) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
 	@Operation(summary = "Retorna a quantidade de partidas cadastradas.")

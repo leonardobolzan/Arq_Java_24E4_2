@@ -1,7 +1,6 @@
 package br.edu.infnet.leonardo.model.service;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +17,8 @@ public class CanalService {
 		return (Collection<Canal>) canalRepository.findAll();
 	}
 
-	public Optional<Canal> GetById(Integer id) {
-		return canalRepository.findById(id);
+	public Canal GetById(Integer id) {
+		return canalRepository.findById(id).orElse(null);
 	}
 
 	public void Add(Canal canal) {

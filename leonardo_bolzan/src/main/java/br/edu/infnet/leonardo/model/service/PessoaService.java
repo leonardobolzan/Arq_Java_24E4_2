@@ -1,7 +1,6 @@
 package br.edu.infnet.leonardo.model.service;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +17,8 @@ public class PessoaService {
 		return (Collection<Pessoa>) pessoaRepository.findAll();
 	}
 
-	public Optional<Pessoa> GetById(Integer id) {
-		return pessoaRepository.findById(id);
+	public Pessoa GetById(Integer id) {
+		return pessoaRepository.findById(id).orElse(null);
 	}
 
 	public void Add(Pessoa pessoa) {

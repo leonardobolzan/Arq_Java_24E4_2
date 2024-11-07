@@ -1,7 +1,6 @@
 package br.edu.infnet.leonardo.model.service;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +17,8 @@ public class JogadorService {
 		return (Collection<Jogador>) jogadorRepository.findAll();
 	}
 
-	public Optional<Jogador> GetById(Integer id) {
-		return jogadorRepository.findById(id);
+	public Jogador GetById(Integer id) {
+		return jogadorRepository.findById(id).orElse(null);
 	}
 
 	public void Add(Jogador jogador) {

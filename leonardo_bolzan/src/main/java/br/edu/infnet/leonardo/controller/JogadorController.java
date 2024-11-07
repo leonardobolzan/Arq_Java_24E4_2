@@ -1,9 +1,10 @@
 package br.edu.infnet.leonardo.controller;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,14 +28,15 @@ public class JogadorController {
 
 	@Operation(summary = "Retorna todos os jogadores cadastrados.")
 	@GetMapping
-	public Collection<Jogador> GetAll() {
-		return jogadorService.GetAll();
+	public ResponseEntity<Collection<Jogador>> GetAll() {
+		return ResponseEntity.ok(jogadorService.GetAll());
 	}
 
 	@Operation(summary = "Retorna um jogador através do identificador único.")
 	@GetMapping(value = "/{id}")
-	public Optional<Jogador> GetById(@PathVariable Integer id) {
-		return jogadorService.GetById(id);
+	public ResponseEntity<Jogador> GetById(@PathVariable Integer id) {
+		Jogador jogador = jogadorService.GetById(id);
+		return jogador != null ? ResponseEntity.ok(jogador) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
 	@Operation(summary = "Retorna a quantidade de jogadores cadastrados.")

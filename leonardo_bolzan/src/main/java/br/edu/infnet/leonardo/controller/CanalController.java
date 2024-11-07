@@ -1,9 +1,10 @@
 package br.edu.infnet.leonardo.controller;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.infnet.leonardo.model.domain.Canal;
 import br.edu.infnet.leonardo.model.service.CanalService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Tag(name = "Canais", description = "Métodos disponíveis para a gestão dos canais de transmissão das partidas.")
@@ -28,17 +27,16 @@ public class CanalController {
 	private CanalService canalService;
 
 	@Operation(summary = "Retorna todos os canais cadastrados.")
-	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Sucesso."),
-			@ApiResponse(responseCode = "500", description = "Erro inesperado.") })
 	@GetMapping
-	public Collection<Canal> GetAll() {
-		return canalService.GetAll();
+	public ResponseEntity<Collection<Canal>> GetAll() {
+		return ResponseEntity.ok(canalService.GetAll());
 	}
 
 	@Operation(summary = "Retorna um canal através do identificador único.")
 	@GetMapping(value = "/{id}")
-	public Optional<Canal> GetById(@PathVariable Integer id) {
-		return canalService.GetById(id);
+	public ResponseEntity<Canal> GetById(@PathVariable Integer id) {
+		Canal canal = canalService.GetById(id);
+		return canal != null ? ResponseEntity.ok(canal) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
 	@Operation(summary = "Retorna a quantidade de canais cadastrados.")

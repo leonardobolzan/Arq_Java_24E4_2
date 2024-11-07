@@ -1,9 +1,10 @@
 package br.edu.infnet.leonardo.controller;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,14 +28,15 @@ public class NarradorController {
 
 	@Operation(summary = "Retorna todos os narradores cadastrados.")
 	@GetMapping
-	public Collection<Narrador> GetAll() {
-		return narradorService.GetAll();
+	public ResponseEntity<Collection<Narrador>> GetAll() {
+		return ResponseEntity.ok(narradorService.GetAll());
 	}
 
 	@Operation(summary = "Retorna um narrador através do identificador único.")
 	@GetMapping(value = "/{id}")
-	public Optional<Narrador> GetById(@PathVariable Integer id) {
-		return narradorService.GetById(id);
+	public ResponseEntity<Narrador> GetById(@PathVariable Integer id) {
+		Narrador narrador = narradorService.GetById(id);
+		return narrador != null ? ResponseEntity.ok(narrador) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
 	@Operation(summary = "Retorna a quantidade de narradores cadastrados.")

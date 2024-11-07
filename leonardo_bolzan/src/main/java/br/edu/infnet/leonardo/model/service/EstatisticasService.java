@@ -1,7 +1,6 @@
 package br.edu.infnet.leonardo.model.service;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +17,8 @@ public class EstatisticasService {
 		return (Collection<Estatisticas>) estatisticasRepository.findAll();
 	}
 
-	public Optional<Estatisticas> GetById(Integer id) {
-		return estatisticasRepository.findById(id);
+	public Estatisticas GetById(Integer id) {
+		return estatisticasRepository.findById(id).orElse(null);
 	}
 
 	public void Add(Estatisticas estatisticas) {

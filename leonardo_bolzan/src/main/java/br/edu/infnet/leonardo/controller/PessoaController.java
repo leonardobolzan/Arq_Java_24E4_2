@@ -1,9 +1,10 @@
 package br.edu.infnet.leonardo.controller;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,14 +28,15 @@ public class PessoaController {
 
 	@Operation(summary = "Retorna todas as pessoas cadastradas.")
 	@GetMapping
-	public Collection<Pessoa> GetAll() {
-		return pessoaService.GetAll();
+	public ResponseEntity<Collection<Pessoa>> GetAll() {
+		return ResponseEntity.ok(pessoaService.GetAll());
 	}
 
 	@Operation(summary = "Retorna uma pessoa através do identificador único.")
 	@GetMapping(value = "/{id}")
-	public Optional<Pessoa> GetById(@PathVariable Integer id) {
-		return pessoaService.GetById(id);
+	public ResponseEntity<Pessoa> GetById(@PathVariable Integer id) {
+		Pessoa pessoa = pessoaService.GetById(id);
+		return pessoa != null ? ResponseEntity.ok(pessoa) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
 	@Operation(summary = "Retorna a quantidade de pessoas cadastradas.")

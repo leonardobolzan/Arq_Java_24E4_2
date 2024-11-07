@@ -1,9 +1,10 @@
 package br.edu.infnet.leonardo.controller;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,14 +28,15 @@ public class TimeController {
 
 	@Operation(summary = "Retorna todos os times cadastrados.")
 	@GetMapping
-	public Collection<Time> GetAll() {
-		return timeService.GetAll();
+	public ResponseEntity<Collection<Time>> GetAll() {
+		return ResponseEntity.ok(timeService.GetAll());
 	}
 
 	@Operation(summary = "Retorna um time através do identificador único.")
 	@GetMapping(value = "/{id}")
-	public Optional<Time> GetById(@PathVariable Integer id) {
-		return timeService.GetById(id);
+	public ResponseEntity<Time> GetById(@PathVariable Integer id) {
+		Time time = timeService.GetById(id);
+		return time != null ? ResponseEntity.ok(time) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
 	@Operation(summary = "Retorna a quantidade de times cadastrados.")
