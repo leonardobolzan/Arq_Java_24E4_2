@@ -25,8 +25,14 @@ public class JogadorService {
 		return jogadorRepository.save(jogador);
 	}
 
-	public void Delete(Integer id) {
-		jogadorRepository.deleteById(id);
+	public boolean Delete(Integer id) {
+		
+		if (jogadorRepository.existsById(id)) {
+			jogadorRepository.deleteById(id);
+			return true;
+		}
+		
+		return false;
 	}
 
 	public Long CountAll() {

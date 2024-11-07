@@ -54,8 +54,11 @@ public class PessoaController {
 
 	@Operation(summary = "Remove uma pessoa através do identificador único.")
 	@DeleteMapping(value = "/{id}")
-	public String Remove(@PathVariable Integer id) {
-		pessoaService.Delete(id);
-		return "Pessoa excluída com sucesso.";
+	public ResponseEntity<String> Remove(@PathVariable Integer id) {
+		if (pessoaService.Delete(id)) {
+			return ResponseEntity.ok("Pessoa excluída com sucesso.");
+		}
+
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 }

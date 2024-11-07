@@ -25,8 +25,14 @@ public class PessoaService {
 		return pessoaRepository.save(pessoa);
 	}
 
-	public void Delete(Integer id) {
-		pessoaRepository.deleteById(id);
+	public boolean Delete(Integer id) {
+		
+		if (pessoaRepository.existsById(id)) {
+			pessoaRepository.deleteById(id);
+			return true;
+		}
+		
+		return false;
 	}
 
 	public Long CountAll() {

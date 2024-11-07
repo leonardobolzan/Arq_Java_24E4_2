@@ -25,8 +25,14 @@ public class NarradorService {
 		return narradorRepository.save(narrador);
 	}
 
-	public void Delete(Integer id) {
-		narradorRepository.deleteById(id);
+	public boolean Delete(Integer id) {
+		
+		if (narradorRepository.existsById(id)) {
+			narradorRepository.deleteById(id);
+			return true;
+		}
+		
+		return false;
 	}
 
 	public Long CountAll() {

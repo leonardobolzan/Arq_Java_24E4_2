@@ -25,8 +25,14 @@ public class EstatisticasService {
 		return estatisticasRepository.save(estatisticas);
 	}
 
-	public void Delete(Integer id) {
-		estatisticasRepository.deleteById(id);
+	public boolean Delete(Integer id) {
+		
+		if (estatisticasRepository.existsById(id)) {
+			estatisticasRepository.deleteById(id);
+			return true;
+		}
+		
+		return false;
 	}
 
 	public Long CountAll() {

@@ -26,8 +26,14 @@ public class PartidaService {
 		return partidaRepository.save(partida);
 	}
 
-	public void Delete(Integer id) {
-		partidaRepository.deleteById(id);
+	public boolean Delete(Integer id) {
+		
+		if (partidaRepository.existsById(id)) {
+			partidaRepository.deleteById(id);
+			return true;
+		}
+		
+		return false;
 	}
 
 	public Long CountAll() {

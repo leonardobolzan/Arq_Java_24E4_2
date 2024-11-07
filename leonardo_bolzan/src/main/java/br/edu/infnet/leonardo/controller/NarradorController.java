@@ -54,8 +54,11 @@ public class NarradorController {
 
 	@Operation(summary = "Remove um narrador através do identificador único.")
 	@DeleteMapping(value = "/{id}")
-	public String Remove(@PathVariable Integer id) {
-		narradorService.Delete(id);
-		return "Narrador excluído com sucesso.";
+	public ResponseEntity<String> Remove(@PathVariable Integer id) {
+		if (narradorService.Delete(id)) {
+			return ResponseEntity.ok("Narrador excluído com sucesso.");
+		}
+
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 }

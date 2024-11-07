@@ -54,8 +54,11 @@ public class JogadorController {
 
 	@Operation(summary = "Remove um jogador através do identificador único.")
 	@DeleteMapping(value = "/{id}")
-	public String Remove(@PathVariable Integer id) {
-		jogadorService.Delete(id);
-		return "Jogador excluído com sucesso.";
+	public ResponseEntity<String> Remove(@PathVariable Integer id) {
+		if (jogadorService.Delete(id)) {
+			return ResponseEntity.ok("Jogador excluído com sucesso.");
+		}
+
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 }

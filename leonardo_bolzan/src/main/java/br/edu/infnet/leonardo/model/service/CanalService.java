@@ -25,8 +25,14 @@ public class CanalService {
 		return canalRepository.save(canal);
 	}
 
-	public void Delete(Integer id) {
-		canalRepository.deleteById(id);
+	public boolean Delete(Integer id) {
+		
+		if (canalRepository.existsById(id)) {
+			canalRepository.deleteById(id);
+			return true;
+		}
+		
+		return false;
 	}
 
 	public Long CountAll() {

@@ -25,8 +25,14 @@ public class TimeService {
 		return timeRepository.save(time);
 	}
 
-	public void Delete(Integer id) {
-		timeRepository.deleteById(id);
+	public boolean Delete(Integer id) {
+		
+		if (timeRepository.existsById(id)) {
+			timeRepository.deleteById(id);
+			return true;
+		}
+		
+		return false;
 	}
 
 	public Long CountAll() {

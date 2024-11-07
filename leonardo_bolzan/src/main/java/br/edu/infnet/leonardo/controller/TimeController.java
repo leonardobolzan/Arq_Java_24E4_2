@@ -54,8 +54,11 @@ public class TimeController {
 
 	@Operation(summary = "Remove um time através do identificador único.")
 	@DeleteMapping(value = "/{id}")
-	public String Remove(@PathVariable Integer id) {
-		timeService.Delete(id);
-		return "Time excluído com sucesso.";
+	public ResponseEntity<String> Remove(@PathVariable Integer id) {
+		if (timeService.Delete(id)) {
+			return ResponseEntity.ok("Time excluído com sucesso.");
+		}
+
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 }

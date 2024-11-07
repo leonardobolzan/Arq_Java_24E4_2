@@ -54,8 +54,11 @@ public class PartidaController {
 
 	@Operation(summary = "Remove uma partida através do identificador único.")
 	@DeleteMapping(value = "/{id}")
-	public String Remove(@PathVariable Integer id) {
-		partidaService.Delete(id);
-		return "Partida excluída com sucesso.";
+	public ResponseEntity<String> Remove(@PathVariable Integer id) {
+		if (partidaService.Delete(id)) {
+			return ResponseEntity.ok("Partida excluída com sucesso.");
+		}
+
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 }

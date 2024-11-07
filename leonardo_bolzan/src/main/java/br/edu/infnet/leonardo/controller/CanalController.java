@@ -54,8 +54,11 @@ public class CanalController {
 
 	@Operation(summary = "Remove um canal através do identificador único.")
 	@DeleteMapping(value = "/{id}")
-	public String Remove(@PathVariable Integer id) {
-		canalService.Delete(id);
-		return "Canal excluído com sucesso.";
+	public ResponseEntity<String> Remove(@PathVariable Integer id) {
+		if (canalService.Delete(id)) {
+			return ResponseEntity.ok("Canal excluído com sucesso.");
+		}
+
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 }

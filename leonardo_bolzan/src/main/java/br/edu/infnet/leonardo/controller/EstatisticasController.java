@@ -54,8 +54,11 @@ public class EstatisticasController {
 
 	@Operation(summary = "Remove uma estatística através do identificador único.")
 	@DeleteMapping(value = "/{id}")
-	public String Remove(@PathVariable Integer id) {
-		estatisticasService.Delete(id);
-		return "Estatísticas excluídas com sucesso.";
+	public ResponseEntity<String> Remove(@PathVariable Integer id) {
+		if (estatisticasService.Delete(id)) {
+			return ResponseEntity.ok("Estatísticas excluídas com sucesso.");
+		}
+
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 }
