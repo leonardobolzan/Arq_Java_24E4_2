@@ -47,9 +47,9 @@ public class PessoaController {
 
 	@Operation(summary = "Adiciona uma nova pessoa.")
 	@PostMapping
-	public String Add(@RequestBody Pessoa pessoa) {
+	public ResponseEntity<String> Add(@RequestBody Pessoa pessoa) {
 		pessoaService.Add(pessoa);
-		return "Pessoa cadastrada com sucesso.";
+		return ResponseEntity.status(HttpStatus.CREATED).body("Pessoa cadastrada com sucesso.");
 	}
 
 	@Operation(summary = "Remove uma pessoa através do identificador único.")

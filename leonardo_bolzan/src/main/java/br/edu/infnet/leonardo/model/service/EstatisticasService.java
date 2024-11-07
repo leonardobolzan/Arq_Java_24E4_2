@@ -21,8 +21,8 @@ public class EstatisticasService {
 		return estatisticasRepository.findById(id).orElse(null);
 	}
 
-	public void Add(Estatisticas estatisticas) {
-		estatisticasRepository.save(estatisticas);
+	public Estatisticas Add(Estatisticas estatisticas) {
+		return estatisticasRepository.save(estatisticas);
 	}
 
 	public void Delete(Integer id) {

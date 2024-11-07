@@ -47,9 +47,9 @@ public class CanalController {
 
 	@Operation(summary = "Adiciona um novo canal.")
 	@PostMapping
-	public String Add(@RequestBody Canal canal) {
+	public ResponseEntity<String> Add(@RequestBody Canal canal) {
 		canalService.Add(canal);
-		return "Canal cadastrado com sucesso.";
+		return ResponseEntity.status(HttpStatus.CREATED).body("Canal cadastrado com sucesso.");
 	}
 
 	@Operation(summary = "Remove um canal através do identificador único.")

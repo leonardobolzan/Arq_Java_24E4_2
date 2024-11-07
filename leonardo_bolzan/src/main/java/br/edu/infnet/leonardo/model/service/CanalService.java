@@ -21,8 +21,8 @@ public class CanalService {
 		return canalRepository.findById(id).orElse(null);
 	}
 
-	public void Add(Canal canal) {
-		canalRepository.save(canal);
+	public Canal Add(Canal canal) {
+		return canalRepository.save(canal);
 	}
 
 	public void Delete(Integer id) {

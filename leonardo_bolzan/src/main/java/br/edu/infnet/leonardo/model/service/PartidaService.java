@@ -22,8 +22,8 @@ public class PartidaService {
 		return partidaRepository.findById(id).orElse(null);
 	}
 
-	public void Add(Partida partida) {
-		partidaRepository.save(partida);
+	public Partida Add(Partida partida) {
+		return partidaRepository.save(partida);
 	}
 
 	public void Delete(Integer id) {

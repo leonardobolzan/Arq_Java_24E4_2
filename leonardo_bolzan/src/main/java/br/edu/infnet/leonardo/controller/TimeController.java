@@ -47,9 +47,9 @@ public class TimeController {
 
 	@Operation(summary = "Adiciona um novo time.")
 	@PostMapping
-	public String Add(@RequestBody Time time) {
+	public ResponseEntity<String> Add(@RequestBody Time time) {
 		timeService.Add(time);
-		return "Time cadastrado com sucesso.";
+		return ResponseEntity.status(HttpStatus.CREATED).body("Time cadastrado com sucesso.");
 	}
 
 	@Operation(summary = "Remove um time através do identificador único.")

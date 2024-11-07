@@ -47,9 +47,9 @@ public class EstatisticasController {
 
 	@Operation(summary = "Adiciona uma nova estatística.")
 	@PostMapping
-	public String Add(@RequestBody Estatisticas estatisticas) {
+	public ResponseEntity<String> Add(@RequestBody Estatisticas estatisticas) {
 		estatisticasService.Add(estatisticas);
-		return "Estatísticas cadastradas com sucesso.";
+		return ResponseEntity.status(HttpStatus.CREATED).body("Estatísticas cadastradas com sucesso.");
 	}
 
 	@Operation(summary = "Remove uma estatística através do identificador único.")

@@ -47,9 +47,9 @@ public class JogadorController {
 
 	@Operation(summary = "Adiciona um novo jogador.")
 	@PostMapping
-	public String Add(@RequestBody Jogador jogador) {
+	public ResponseEntity<String> Add(@RequestBody Jogador jogador) {
 		jogadorService.Add(jogador);
-		return "Jogador cadastrado com sucesso.";
+		return ResponseEntity.status(HttpStatus.CREATED).body("Jogador cadastrado com sucesso.");
 	}
 
 	@Operation(summary = "Remove um jogador através do identificador único.")

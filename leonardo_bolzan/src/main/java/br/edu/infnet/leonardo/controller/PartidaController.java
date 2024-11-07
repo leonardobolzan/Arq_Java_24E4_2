@@ -47,9 +47,9 @@ public class PartidaController {
 
 	@Operation(summary = "Adiciona uma nova partida.")
 	@PostMapping
-	public String Add(@RequestBody Partida partida) {
+	public ResponseEntity<String> Add(@RequestBody Partida partida) {
 		partidaService.Add(partida);
-		return "Partida cadastrada com sucesso.";
+		return ResponseEntity.status(HttpStatus.CREATED).body("Partida cadastrada com sucesso.");
 	}
 
 	@Operation(summary = "Remove uma partida através do identificador único.")

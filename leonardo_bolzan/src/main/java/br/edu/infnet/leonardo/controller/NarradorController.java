@@ -47,9 +47,9 @@ public class NarradorController {
 
 	@Operation(summary = "Adiciona um novo narrador.")
 	@PostMapping
-	public String Add(@RequestBody Narrador narrador) {
+	public ResponseEntity<String> Add(@RequestBody Narrador narrador) {
 		narradorService.Add(narrador);
-		return "Narrador cadastrado com sucesso.";
+		return ResponseEntity.status(HttpStatus.CREATED).body("Narrador cadastrado com sucesso.");
 	}
 
 	@Operation(summary = "Remove um narrador através do identificador único.")

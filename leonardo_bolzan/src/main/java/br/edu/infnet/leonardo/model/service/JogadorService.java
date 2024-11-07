@@ -21,8 +21,8 @@ public class JogadorService {
 		return jogadorRepository.findById(id).orElse(null);
 	}
 
-	public void Add(Jogador jogador) {
-		jogadorRepository.save(jogador);
+	public Jogador Add(Jogador jogador) {
+		return jogadorRepository.save(jogador);
 	}
 
 	public void Delete(Integer id) {

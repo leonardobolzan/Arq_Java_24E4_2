@@ -21,8 +21,8 @@ public class NarradorService {
 		return narradorRepository.findById(id).orElse(null);
 	}
 
-	public void Add(Narrador narrador) {
-		narradorRepository.save(narrador);
+	public Narrador Add(Narrador narrador) {
+		return narradorRepository.save(narrador);
 	}
 
 	public void Delete(Integer id) {

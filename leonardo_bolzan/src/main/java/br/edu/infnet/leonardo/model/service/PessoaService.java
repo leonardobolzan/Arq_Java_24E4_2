@@ -21,8 +21,8 @@ public class PessoaService {
 		return pessoaRepository.findById(id).orElse(null);
 	}
 
-	public void Add(Pessoa pessoa) {
-		pessoaRepository.save(pessoa);
+	public Pessoa Add(Pessoa pessoa) {
+		return pessoaRepository.save(pessoa);
 	}
 
 	public void Delete(Integer id) {

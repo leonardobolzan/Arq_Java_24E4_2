@@ -21,8 +21,8 @@ public class TimeService {
 		return timeRepository.findById(id).orElse(null);
 	}
 
-	public void Add(Time time) {
-		timeRepository.save(time);
+	public Time Add(Time time) {
+		return timeRepository.save(time);
 	}
 
 	public void Delete(Integer id) {
