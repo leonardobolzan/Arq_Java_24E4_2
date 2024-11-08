@@ -1,8 +1,5 @@
 package br.edu.infnet.leonardo;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -63,8 +60,7 @@ public class Loader implements ApplicationRunner {
 		timeVisitante.addJogador(new Jogador("Braithwaite", 22, "ATA"));
 
 		/// Cria a partida
-		Partida partida = new Partida(timeCasa, timeVisitante, GetLocalDateTime("2024-10-19 16:00"),
-				"Estádio Beira-Rio");
+		Partida partida = new Partida(timeCasa, timeVisitante, "Estádio Beira-Rio");
 
 		/// Associa um canal à partida
 		Narrador narrador = new Narrador("Paulo Brito", "Futebol do RS");
@@ -108,8 +104,7 @@ public class Loader implements ApplicationRunner {
 		timeVisitante.addJogador(new Jogador("Bruno Henrique", 27, "ATA"));
 
 		/// Cria a partida
-		Partida partida = new Partida(timeCasa, timeVisitante, GetLocalDateTime("2024-10-30 19:00"),
-				"Estádio Beira-Rio");
+		Partida partida = new Partida(timeCasa, timeVisitante, "Estádio Beira-Rio");
 
 		/// Associa um canal à partida
 		Narrador narrador = new Narrador("Paulo Brito", "Futebol do RS");
@@ -117,10 +112,5 @@ public class Loader implements ApplicationRunner {
 		partida.addCanal(canal);
 
 		return partida;
-	}
-
-	private static LocalDateTime GetLocalDateTime(String data) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-		return LocalDateTime.parse(data, formatter);
 	}
 }

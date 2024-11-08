@@ -22,21 +22,28 @@ public class PartidaService {
 		return partidaRepository.findById(id).orElse(null);
 	}
 
+	public Long CountAll() {
+		return partidaRepository.count();
+	}
+
 	public Partida Add(Partida partida) {
 		return partidaRepository.save(partida);
 	}
 
+	public Partida Update(Partida partida) {
+		if (partidaRepository.existsById(partida.getId())) {
+			return partidaRepository.save(partida);
+		}
+
+		return null;
+	}
+
 	public boolean Delete(Integer id) {
-		
 		if (partidaRepository.existsById(id)) {
 			partidaRepository.deleteById(id);
 			return true;
 		}
-		
-		return false;
-	}
 
-	public Long CountAll() {
-		return partidaRepository.count();
+		return false;
 	}
 }

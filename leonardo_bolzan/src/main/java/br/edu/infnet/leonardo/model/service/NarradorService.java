@@ -21,21 +21,28 @@ public class NarradorService {
 		return narradorRepository.findById(id).orElse(null);
 	}
 
+	public Long CountAll() {
+		return narradorRepository.count();
+	}
+
 	public Narrador Add(Narrador narrador) {
 		return narradorRepository.save(narrador);
 	}
 
+	public Narrador Update(Narrador narrador) {
+		if (narradorRepository.existsById(narrador.getId())) {
+			return narradorRepository.save(narrador);
+		}
+
+		return null;
+	}
+
 	public boolean Delete(Integer id) {
-		
 		if (narradorRepository.existsById(id)) {
 			narradorRepository.deleteById(id);
 			return true;
 		}
-		
-		return false;
-	}
 
-	public Long CountAll() {
-		return narradorRepository.count();
+		return false;
 	}
 }

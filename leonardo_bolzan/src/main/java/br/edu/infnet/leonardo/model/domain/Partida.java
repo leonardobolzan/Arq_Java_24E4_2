@@ -1,7 +1,5 @@
 package br.edu.infnet.leonardo.model.domain;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "TPartidas")
@@ -31,7 +30,7 @@ public class Partida {
 	@JoinColumn(name = "idTimeVisitante")
 	private Time timeVisitante;
 
-	private LocalDateTime dataHoraInicio;
+	@NotBlank(message = "O local da partida é uma informação obrigatória.")
 	private String local;
 	private int placarCasa;
 	private int placarVisitante;
@@ -51,10 +50,9 @@ public class Partida {
 	public Partida() {
 	}
 
-	public Partida(Time timeCasa, Time timeVisitante, LocalDateTime dataHoraInicio, String local) {
+	public Partida(Time timeCasa, Time timeVisitante, String local) {
 		this.timeCasa = timeCasa;
 		this.timeVisitante = timeVisitante;
-		this.dataHoraInicio = dataHoraInicio;
 		this.local = local;
 		this.placarCasa = 0;
 		this.placarVisitante = 0;
@@ -65,8 +63,7 @@ public class Partida {
 
 	@Override
 	public String toString() {
-		return String.format("Partida iniciada em %s - %s vs %s.", this.dataHoraInicio, this.timeCasa.getNome(),
-				this.timeVisitante.getNome());
+		return String.format("Partida entre os times %s e %s.", this.timeCasa.getNome(), this.timeVisitante.getNome());
 	}
 
 	public Integer getId() {
@@ -91,14 +88,6 @@ public class Partida {
 
 	public void setTimeVisitante(Time timeVisitante) {
 		this.timeVisitante = timeVisitante;
-	}
-
-	public String getDataHoraInicio() {
-		return dataHoraInicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-	}
-
-	public void setDataHoraInicio(LocalDateTime dataHoraInicio) {
-		this.dataHoraInicio = dataHoraInicio;
 	}
 
 	public String getLocal() {

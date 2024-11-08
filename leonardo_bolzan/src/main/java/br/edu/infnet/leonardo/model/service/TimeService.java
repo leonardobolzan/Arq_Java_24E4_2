@@ -21,21 +21,28 @@ public class TimeService {
 		return timeRepository.findById(id).orElse(null);
 	}
 
+	public Long CountAll() {
+		return timeRepository.count();
+	}
+
 	public Time Add(Time time) {
 		return timeRepository.save(time);
 	}
 
+	public Time Update(Time time) {
+		if (timeRepository.existsById(time.getId())) {
+			return timeRepository.save(time);
+		}
+
+		return null;
+	}
+
 	public boolean Delete(Integer id) {
-		
 		if (timeRepository.existsById(id)) {
 			timeRepository.deleteById(id);
 			return true;
 		}
-		
-		return false;
-	}
 
-	public Long CountAll() {
-		return timeRepository.count();
+		return false;
 	}
 }

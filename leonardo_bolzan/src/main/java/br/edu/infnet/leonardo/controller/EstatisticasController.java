@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +37,8 @@ public class EstatisticasController {
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Estatisticas> GetById(@PathVariable Integer id) {
 		Estatisticas estatisticas = estatisticasService.GetById(id);
-		return estatisticas != null ? ResponseEntity.ok(estatisticas) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		return estatisticas != null ? ResponseEntity.ok(estatisticas)
+				: ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
 	@Operation(summary = "Retorna a quantidade de estatísticas cadastradas.")
@@ -50,6 +52,13 @@ public class EstatisticasController {
 	public ResponseEntity<String> Add(@RequestBody Estatisticas estatisticas) {
 		estatisticasService.Add(estatisticas);
 		return ResponseEntity.status(HttpStatus.CREATED).body("Estatísticas cadastradas com sucesso.");
+	}
+
+	@Operation(summary = "Atualiza as estatísticas existentes.")
+	@PutMapping
+	public ResponseEntity<Estatisticas> Update(@RequestBody Estatisticas estatisticas) {
+		estatisticasService.Update(estatisticas);
+		return ResponseEntity.status(HttpStatus.CREATED).body(estatisticas);
 	}
 
 	@Operation(summary = "Remove uma estatística através do identificador único.")

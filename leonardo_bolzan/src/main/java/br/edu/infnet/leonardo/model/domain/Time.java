@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "TTimes")
@@ -20,7 +21,10 @@ public class Time {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotBlank(message = "O nome do time é obrigatório.")
 	private String nome;
+
+	@NotBlank(message = "A sigla do time é obrigatória.")
 	private String sigla;
 	private String escudo;
 

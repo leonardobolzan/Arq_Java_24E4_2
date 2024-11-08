@@ -7,10 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.infnet.leonardo.model.domain.Canal;
@@ -50,6 +53,20 @@ public class CanalController {
 	public ResponseEntity<String> Add(@RequestBody Canal canal) {
 		canalService.Add(canal);
 		return ResponseEntity.status(HttpStatus.CREATED).body("Canal cadastrado com sucesso.");
+	}
+
+	@Operation(summary = "Atualiza um canal existente.")
+	@PutMapping
+	public ResponseEntity<Canal> Update(@RequestBody Canal canal) {
+		canalService.Update(canal);
+		return ResponseEntity.status(HttpStatus.CREATED).body(canal);
+	}
+
+	@Operation(summary = "Atualiza o nome de um canal existente.")
+	@PatchMapping
+	public ResponseEntity<Canal> UpdateNome(@RequestParam Integer id, String nome) {
+		Canal canal = canalService.UpdateNome(id, nome);
+		return ResponseEntity.status(HttpStatus.CREATED).body(canal);
 	}
 
 	@Operation(summary = "Remove um canal através do identificador único.")

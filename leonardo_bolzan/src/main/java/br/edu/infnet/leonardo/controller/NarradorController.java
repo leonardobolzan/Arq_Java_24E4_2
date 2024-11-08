@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,6 +51,13 @@ public class NarradorController {
 	public ResponseEntity<String> Add(@RequestBody Narrador narrador) {
 		narradorService.Add(narrador);
 		return ResponseEntity.status(HttpStatus.CREATED).body("Narrador cadastrado com sucesso.");
+	}
+
+	@Operation(summary = "Atualiza um narrador existente.")
+	@PutMapping
+	public ResponseEntity<Narrador> Update(@RequestBody Narrador narrador) {
+		narradorService.Update(narrador);
+		return ResponseEntity.status(HttpStatus.CREATED).body(narrador);
 	}
 
 	@Operation(summary = "Remove um narrador através do identificador único.")

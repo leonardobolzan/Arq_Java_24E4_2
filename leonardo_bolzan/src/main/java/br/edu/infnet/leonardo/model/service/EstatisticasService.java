@@ -21,21 +21,28 @@ public class EstatisticasService {
 		return estatisticasRepository.findById(id).orElse(null);
 	}
 
+	public Long CountAll() {
+		return estatisticasRepository.count();
+	}
+
 	public Estatisticas Add(Estatisticas estatisticas) {
 		return estatisticasRepository.save(estatisticas);
 	}
 
+	public Estatisticas Update(Estatisticas estatisticas) {
+		if (estatisticasRepository.existsById(estatisticas.getId())) {
+			return estatisticasRepository.save(estatisticas);
+		}
+
+		return null;
+	}
+
 	public boolean Delete(Integer id) {
-		
 		if (estatisticasRepository.existsById(id)) {
 			estatisticasRepository.deleteById(id);
 			return true;
 		}
-		
-		return false;
-	}
 
-	public Long CountAll() {
-		return estatisticasRepository.count();
+		return false;
 	}
 }

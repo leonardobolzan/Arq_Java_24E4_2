@@ -1,0 +1,948 @@
+{
+	"info": {
+		"_postman_id": "5dbe4447-069e-47c0-9ac8-9b41a00428d6",
+		"name": "Arq_Java_24E4_2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11176370"
+	},
+	"item": [
+		{
+			"name": "Partidas",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/partidas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/partidas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partidas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CountAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/partidas/count",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partidas",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"timeCasa\": {\r\n        \"nome\": \"Internacional\",\r\n        \"sigla\": \"INT\",\r\n        \"escudo\": null,\r\n        \"jogadores\": [\r\n            {\r\n                \"nome\": \"Leonardo Bolzan\",\r\n                \"idade\": 33,\r\n                \"numero\": 10,\r\n                \"posicao\": \"ATA\",\r\n                \"titular\": true\r\n            },\r\n            {\r\n                \"nome\": \"João da Silva\",\r\n                \"idade\": 25,\r\n                \"numero\": 15,\r\n                \"posicao\": \"LAD\",\r\n                \"titular\": true\r\n            }\r\n        ]\r\n    },\r\n    \"timeVisitante\": {\r\n        \"nome\": \"Grêmio\",\r\n        \"sigla\": \"GRE\",\r\n        \"escudo\": null,\r\n        \"jogadores\": [\r\n            {\r\n                \"nome\": \"Machesin\",\r\n                \"idade\": 20,\r\n                \"numero\": 1,\r\n                \"posicao\": \"GOL\",\r\n                \"titular\": true\r\n            },\r\n            {\r\n                \"nome\": \"João Pedro\",\r\n                \"idade\": 30,\r\n                \"numero\": 18,\r\n                \"posicao\": \"LAD\",\r\n                \"titular\": true\r\n            }\r\n        ]\r\n    },\r\n    \"dataHoraInicio\": null,\r\n    \"local\": \"Estádio Beira-Rio\",\r\n    \"placarCasa\": 0,\r\n    \"placarVisitante\": 0,\r\n    \"estatisticasTimeCasa\": null,\r\n    \"estatisticasTimeVisitante\": null,\r\n    \"canais\": [\r\n        {\r\n            \"nome\": \"Cazé TV\",\r\n            \"numero\": 500,\r\n            \"narrador\": null\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/partidas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"timeCasa\": {\r\n        \"nome\": \"Internacional\",\r\n        \"sigla\": \"INT\",\r\n        \"escudo\": null,\r\n        \"jogadores\": [\r\n            {\r\n                \"nome\": \"Leonardo Bolzan\",\r\n                \"idade\": 33,\r\n                \"numero\": 10,\r\n                \"posicao\": \"ATA\",\r\n                \"titular\": true\r\n            },\r\n            {\r\n                \"nome\": \"João da Silva\",\r\n                \"idade\": 25,\r\n                \"numero\": 15,\r\n                \"posicao\": \"LAD\",\r\n                \"titular\": true\r\n            }\r\n        ]\r\n    },\r\n    \"timeVisitante\": {\r\n        \"nome\": \"Grêmio\",\r\n        \"sigla\": \"GRE\",\r\n        \"escudo\": null,\r\n        \"jogadores\": [\r\n            {\r\n                \"nome\": \"Machesin\",\r\n                \"idade\": 20,\r\n                \"numero\": 1,\r\n                \"posicao\": \"GOL\",\r\n                \"titular\": true\r\n            },\r\n            {\r\n                \"nome\": \"João Pedro\",\r\n                \"idade\": 30,\r\n                \"numero\": 18,\r\n                \"posicao\": \"LAD\",\r\n                \"titular\": true\r\n            }\r\n        ]\r\n    },\r\n    \"dataHoraInicio\": null,\r\n    \"local\": \"Estádio Beira-Rio\",\r\n    \"placarCasa\": 0,\r\n    \"placarVisitante\": 0,\r\n    \"estatisticasTimeCasa\": null,\r\n    \"estatisticasTimeVisitante\": null,\r\n    \"canais\": [\r\n        {\r\n            \"nome\": \"Cazé TV\",\r\n            \"numero\": 500,\r\n            \"narrador\": null\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/partidas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/partidas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"partidas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Canais",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/canais",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/canais/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canais",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CountAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/canais/count",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canais",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Record\",\r\n    \"numero\": 16,\r\n    \"narrador\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/canais",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Globo RS - New\",\r\n    \"numero\": 8,\r\n    \"narrador\": {\r\n        \"id\": 23,\r\n        \"nome\": \"Paulo Brito\",\r\n        \"idade\": 0,\r\n        \"especialidade\": \"Futebol do RS\",\r\n        \"disponivel\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/canais",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/canais/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canais",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jogadores",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/jogadores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/jogadores/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogadores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CountAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/jogadores/count",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogadores",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Leonardo Bolzan\",\r\n    \"idade\": 33,\r\n    \"numero\": 10,\r\n    \"posicao\": \"ATA\",\r\n    \"titular\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/jogadores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Rochet - New\",\r\n    \"idade\": 0,\r\n    \"numero\": 1,\r\n    \"posicao\": \"GOL\",\r\n    \"titular\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/jogadores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/jogadores/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogadores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Narradores",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/narradores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"narradores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/narradores/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"narradores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CountAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/narradores/count",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"narradores",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Lucianinho\",\r\n    \"idade\": 48,\r\n    \"especialidade\": \"Futebol gaúcho\",\r\n    \"disponivel\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/narradores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"narradores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 23,\r\n    \"nome\": \"Paulo Brito - New\",\r\n    \"idade\": 0,\r\n    \"especialidade\": \"Futebol do RS\",\r\n    \"disponivel\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/narradores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"narradores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/narradores/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"narradores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pessoas",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pessoas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pessoas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CountAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pessoas/count",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"João da Silva\",\r\n    \"idade\": 18,\r\n    \"numero\": 1,\r\n    \"posicao\": \"GOL\",\r\n    \"titular\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pessoas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Rochet - New\",\r\n    \"idade\": 0,\r\n    \"numero\": 1,\r\n    \"posicao\": \"GOL\",\r\n    \"titular\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pessoas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pessoas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estatísticas",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/estatisticas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estatisticas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/estatisticas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estatisticas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CountAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/estatisticas/count",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estatisticas",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"percentualPosseBola\": 0.0,\r\n    \"chutesAGol\": 0,\r\n    \"faltasCometidas\": 0,\r\n    \"cartoesAmarelos\": 0,\r\n    \"cartoesVermelhos\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/estatisticas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estatisticas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"percentualPosseBola\": 38,\r\n    \"chutesAGol\": 0,\r\n    \"faltasCometidas\": 0,\r\n    \"cartoesAmarelos\": 0,\r\n    \"cartoesVermelhos\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/estatisticas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estatisticas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/estatisticas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estatisticas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Times",
+			"item": [
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/times",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"times"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/times/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"times",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CountAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/times/count",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"times",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Juventude\",\r\n    \"sigla\": \"JUV\",\r\n    \"escudo\": null,\r\n    \"jogadores\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/times",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"times"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Internacional - New\",\r\n    \"sigla\": \"INT\",\r\n    \"escudo\": null,\r\n    \"jogadores\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nome\": \"Rochet\",\r\n            \"idade\": 0,\r\n            \"numero\": 1,\r\n            \"posicao\": \"GOL\",\r\n            \"titular\": true\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"nome\": \"Bruno Gomes\",\r\n            \"idade\": 0,\r\n            \"numero\": 15,\r\n            \"posicao\": \"LAD\",\r\n            \"titular\": true\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"nome\": \"Clayton Sampaio\",\r\n            \"idade\": 0,\r\n            \"numero\": 20,\r\n            \"posicao\": \"ZAD\",\r\n            \"titular\": true\r\n        },\r\n        {\r\n            \"id\": 4,\r\n            \"nome\": \"Vitão\",\r\n            \"idade\": 0,\r\n            \"numero\": 44,\r\n            \"posicao\": \"ZAE\",\r\n            \"titular\": true\r\n        },\r\n        {\r\n            \"id\": 5,\r\n            \"nome\": \"Bernabei\",\r\n            \"idade\": 0,\r\n            \"numero\": 26,\r\n            \"posicao\": \"LAE\",\r\n            \"titular\": true\r\n        },\r\n        {\r\n            \"id\": 6,\r\n            \"nome\": \"Rômulo\",\r\n            \"idade\": 0,\r\n            \"numero\": 40,\r\n            \"posicao\": \"VOL\",\r\n            \"titular\": true\r\n        },\r\n        {\r\n            \"id\": 7,\r\n            \"nome\": \"Bruno Henrique\",\r\n            \"idade\": 0,\r\n            \"numero\": 8,\r\n            \"posicao\": \"VOL\",\r\n            \"titular\": true\r\n        },\r\n        {\r\n            \"id\": 8,\r\n            \"nome\": \"Alan Patrick\",\r\n            \"idade\": 0,\r\n            \"numero\": 10,\r\n            \"posicao\": \"MEC\",\r\n            \"titular\": true\r\n        },\r\n        {\r\n            \"id\": 9,\r\n            \"nome\": \"Gabriel Carvalho\",\r\n            \"idade\": 0,\r\n            \"numero\": 34,\r\n            \"posicao\": \"MEC\",\r\n            \"titular\": true\r\n        },\r\n        {\r\n            \"id\": 10,\r\n            \"nome\": \"Wesley\",\r\n            \"idade\": 0,\r\n            \"numero\": 21,\r\n            \"posicao\": \"MEC\",\r\n            \"titular\": true\r\n        },\r\n        {\r\n            \"id\": 11,\r\n            \"nome\": \"Borré\",\r\n            \"idade\": 0,\r\n            \"numero\": 19,\r\n            \"posicao\": \"ATA\",\r\n            \"titular\": true\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/times",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"times"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/times/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"times",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

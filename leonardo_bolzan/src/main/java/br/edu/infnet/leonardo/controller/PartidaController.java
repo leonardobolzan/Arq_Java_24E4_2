@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,6 +51,13 @@ public class PartidaController {
 	public ResponseEntity<String> Add(@RequestBody Partida partida) {
 		partidaService.Add(partida);
 		return ResponseEntity.status(HttpStatus.CREATED).body("Partida cadastrada com sucesso.");
+	}
+
+	@Operation(summary = "Atualiza uma partida existente.")
+	@PutMapping
+	public ResponseEntity<Partida> Update(@RequestBody Partida partida) {
+		partidaService.Update(partida);
+		return ResponseEntity.status(HttpStatus.CREATED).body(partida);
 	}
 
 	@Operation(summary = "Remove uma partida através do identificador único.")

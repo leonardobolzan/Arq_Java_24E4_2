@@ -21,21 +21,28 @@ public class JogadorService {
 		return jogadorRepository.findById(id).orElse(null);
 	}
 
+	public Long CountAll() {
+		return jogadorRepository.count();
+	}
+
 	public Jogador Add(Jogador jogador) {
 		return jogadorRepository.save(jogador);
 	}
 
+	public Jogador Update(Jogador jogador) {
+		if (jogadorRepository.existsById(jogador.getId())) {
+			return jogadorRepository.save(jogador);
+		}
+
+		return null;
+	}
+
 	public boolean Delete(Integer id) {
-		
 		if (jogadorRepository.existsById(id)) {
 			jogadorRepository.deleteById(id);
 			return true;
 		}
-		
-		return false;
-	}
 
-	public Long CountAll() {
-		return jogadorRepository.count();
+		return false;
 	}
 }
