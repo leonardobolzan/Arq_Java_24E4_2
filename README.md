@@ -1,6 +1,8 @@
 # Arq_Java_24E4_2
 Projeto desenvolvido para a disciplina de Java, no curso de pós-graduação em Arquitetura de Software pelo Instituto Infnet.
 
+> Objetivo: realizar a gestão de partidas de futebol, permitindo associar estatísticas aos jogos, vincular times, jogadores e canais onde as partidas serão transmitidas.
+
 ## Definição das entidades
 
 ### Partida
